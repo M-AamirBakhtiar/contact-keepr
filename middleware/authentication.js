@@ -28,7 +28,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   }
 
   // Verify the JWT
-  const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+  const decoded = await promisify(jwt.verify)(token, process.env.SUPER_SECRET);
 
   // Check if the user still Exists in DataBase
   const currentUser = await User.findById(decoded.id);
