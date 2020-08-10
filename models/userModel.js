@@ -56,8 +56,8 @@ UserSchema.pre('save', async function (next) {
 
 // Instance Method to Create JWT on the Current User
 UserSchema.methods.getSignedJwtToken = function () {
-  return jwt.sign({ id: this._id }, process.env.SUPER_SECRET, {
-    expiresIn: process.env.SUPER_EXPIRES_IN,
+  return jwt.sign({ id: this._id }, process.env.SUPER_KEY, {
+    expiresIn: process.env.SUPER_EXPIRES,
   });
 };
 
